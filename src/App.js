@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
 
+import { useState } from 'react';
+import './App.css';
+import data from './data';
+import List from './list'
 function App() {
+  const[people, setpeople] = useState(data);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <section className='container'>
+  <h3>{people.length} birthdays today</h3>
+  <List people={people}/>
+  <button onClick={()=>setpeople([])}>clear all</button>
+  </section>
+    </main>
+
   );
 }
 
